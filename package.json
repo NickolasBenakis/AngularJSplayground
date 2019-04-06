@@ -1,0 +1,16 @@
+{
+  "name": "angularjsplayground",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/angularjs": "^1.5.14-alpha",
+    "angular-route": "^1.2.32",
+    "grunt": "^1.0.4"
+  }
+}

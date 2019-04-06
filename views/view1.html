@@ -1,0 +1,24 @@
+<div>
+    <p>
+        <strong> Hello View 1</strong>
+    </p>
+    <div class="container" ng-controller="SimpleController">
+        <div>Hello friends this is basic view</div>
+        <input type="text" ng-model="name">
+        <div ng-if="checked === 1">To be or not to Be</div>
+        <ul>
+            <li ng-repeat="cust in customers | filter:name">{{cust.name}} - {{cust.city}}</li>
+        </ul>
+        <br>
+        <p>Customer Name:</p>
+        <input type="text" ng-model="newCustomer.name">
+        <br>
+        <p>Customer City:</p>
+        <input type="text" ng-model="newCustomer.city">
+        <br>
+        <button ng-click="addCustomer()">Add customer</button>
+        <br>
+        <br>
+        <a href="/#view2">Go to View 2</a>
+    </div>
+</div>

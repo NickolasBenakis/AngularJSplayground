@@ -1,0 +1,15 @@
+<div>
+    <p>
+        <strong> Hello View 2</strong>
+    </p>
+    <div class="container" ng-controller="SimpleController">
+        <div>Hello friends this is basic view</div>
+        <input type="text" ng-model="name">
+        <div ng-if="checked === 1">To be or not to Be</div>
+        <ul>
+            <li ng-repeat="cust in customers | filter:name">{{cust.name}} - {{cust.city}}</li>
+        </ul>
+    </div>
+    <a href="/#view1">Back to View 1</a>
+
+</div>
