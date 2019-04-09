@@ -4,13 +4,47 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "npm run build",
+    "test": "jest",
+    "sass": "node-sass -w scss/ -o css/",
+    "build": "webpack-dev-server --mode development --open",
+    "build:prod": "webpack --mode production"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@types/angularjs": "^1.5.14-alpha",
     "angular-route": "^1.2.32",
-    "grunt": "^1.0.4"
+    "@babel/core": "^7.3.4",
+    "@babel/polyfill": "^7.2.5",
+    "@babel/preset-env": "^7.3.4",
+    "babel-jest": "^24.1.0",
+    "babel-loader": "^8.0.5",
+    "babel-preset-es2015": "^6.24.0",
+    "bootstrap": "^4.3.1",
+    "css-loader": "^0.26.2",
+    "eslint": "^5.14.1",
+    "extract-text-webpack-plugin": "^2.1.0",
+    "file-loader": "^3.0.1",
+    "foundation-sites": "^6.5.3",
+    "html-webpack-plugin": "^3.2.0",
+    "htmlhint": "^0.11.0",
+    "identity-obj-proxy": "^3.0.0",
+    "image-webpack-loader": "^4.6.0",
+    "infinite-scroll": "^3.0.5",
+    "mini-css-extract-plugin": "^0.5.0",
+    "sass-loader": "^6.0.3",
+    "spin.js": "^4.0.0",
+    "style-loader": "^0.13.2",
+    "webpack": "4.20.2",
+    "webpack-cli": "^3.2.3",
+    "webpack-dev-server": "^3.2.0",
+    "webpack-node-externals": "^1.7.2"
+  },
+  "dependencies": {
+    "jest": "^24.1.0",
+    "lodash": "^4.17.11",
+    "node-sass": "^4.11.0",
+    "save-dev": "^2.0.0"
   }
 }
