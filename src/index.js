@@ -1,25 +1,25 @@
 
 
-angular.module('demoApp', ['ngRoute'])
-    .service('simpleFactory', SimpleFactory)
+angular.module('demoApp', ['ngRoute', 'homePage'])
+    .service('SimpleFactory', SimpleFactory)
     .controller('SimpleController', SimpleController)
-    .config(['$routeProvider',
-        function config($routeProvider) {
-            $routeProvider.
-                when('/view1', {
-                    controller: 'SimpleController',
-                    templateUrl: './src/views/view1.html'
-                }).
-                when('/view2', {
-                    controller: 'SimpleController',
-                    templateUrl: './src/views/view2.html'
-                }).
-                otherwise({ redirectTo: '/view1' });
-        }
-    ]);
+    .config(['$routeProvider', config])
+    .factory('test', test);
 
 
 
+
+
+function test($http) {
+    return $http.get('https://api.themoviedb.org/3/movie/now_playing?api_key=bc50218d91157b1ba4f142ef7baaa6a0&page=1')
+        .then(function (data) {
+            console.log(data);
+            return data.results;
+        }, function (error) {
+            console.log(error);
+            return error;
+        })
+}
 
 
 function SimpleFactory() {
@@ -31,14 +31,15 @@ function SimpleFactory() {
     this.getCustomers = function () {
         return customers;
     };
-    return this;
+    //return this;
 
 }
 
-function SimpleController($scope, simpleFactory) {
+function SimpleController($scope, SimpleFactory, test) {
     var vm = this;
     $scope.customers = [];
-    $scope.customers = simpleFactory.getCustomers();
+    $scope.customers = SimpleFactory.getCustomers();
+    $scope.service = test
     $scope.addCustomer = function () {
         $scope.customers.push({
             name: $scope.newCustomer.name,
@@ -46,4 +47,18 @@ function SimpleController($scope, simpleFactory) {
         })
     }
 
+}
+
+
+function config($routeProvider) {
+    $routeProvider.
+        when('/homePage', {
+            controller: 'homePageCtrl',
+            templateUrl: './src/features/homePage/homePage.html'
+        }).
+        when('/view2', {
+            controller: 'SimpleController',
+            templateUrl: './src/features/view2.html'
+        }).
+        otherwise({ redirectTo: '/homePage' });
 }
