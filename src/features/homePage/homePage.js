@@ -10,9 +10,11 @@ angular.module('homePage')
 function homePageCtrl(dataFactory) {
     var vm = this;
     vm.title = "Need Music?";
-    
+    vm.description = "NgSpotify to browse new releases and find your favorites songs";
     dataFactory.getOnlineMovies().then(function (res) {
+
         console.dir(res.data.results[0].title);
+
         vm.data = res.data.results[0].title;
     });
 }
@@ -27,3 +29,4 @@ function dataFactory($http) {
     }
     return dataFactory;
 }
+

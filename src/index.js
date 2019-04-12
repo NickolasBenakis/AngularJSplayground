@@ -60,5 +60,13 @@ function config($routeProvider) {
             controller: 'SimpleController',
             templateUrl: './src/features/view2.html'
         }).
+        when('/Home', {
+            controller: 'homePageCtrl',
+            templateUrl: './src/features/homePage/homePage.html'
+        }).
+        when('/About', {
+            controller: 'SimpleController',
+            templateUrl: './src/features/About/about.html'
+        }).
         otherwise({ redirectTo: '/homePage' });
 }
