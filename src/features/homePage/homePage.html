@@ -1,13 +1,9 @@
-<div id="navbar">
-    <ul style="display: inline-flex; list-style: none;">
-        <li class="navLink" style="color:red;">
-            ngSpotify
-        </li>
-        <li class="navLink">
-            Home
-        </li>
-        <li class="navLink">
-            About
-        </li>
-    </ul>
+<div class="cardContainer" ng-controller="homePageCtrl as ctrl" style="margin: 100px;">
+    <div class="innerContainer">
+        <h1>{{ctrl.title}}</h1>
+        <p>Use NgSpotify to browse new releases and find your favorites songs</p>
+        <div id="searchBarContainer">
+            <input id="searchBar" type="text" placeholder="Search Music...">
+        </div>
+    </div>
 </div>
