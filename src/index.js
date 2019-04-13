@@ -3,6 +3,7 @@
 angular.module('demoApp', ['ngRoute', 'homePage'])
     .service('SimpleFactory', SimpleFactory)
     .controller('SimpleController', SimpleController)
+    .controller('login', login)
     .config(['$routeProvider', config])
     .factory('test', test);
 
@@ -31,7 +32,6 @@ function SimpleFactory() {
     this.getCustomers = function () {
         return customers;
     };
-    //return this;
 
 }
 
@@ -47,6 +47,12 @@ function SimpleController($scope, SimpleFactory, test) {
         })
     }
 
+}
+
+function login($scope) {
+    $scope.getAccess = function () {
+        window.location.href = "http://localhost:8888/login";
+    }
 }
 
 
@@ -68,5 +74,9 @@ function config($routeProvider) {
             controller: 'SimpleController',
             templateUrl: './src/features/About/about.html'
         }).
-        otherwise({ redirectTo: '/homePage' });
+        when('/loginPage', {
+            controller: 'login',
+            templateUrl: './src/features/loginPage/login.html'
+        }).
+        otherwise({ redirectTo: '/loginPage' });
 }

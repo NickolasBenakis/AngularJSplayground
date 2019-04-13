@@ -4,7 +4,7 @@
 angular.module('homePage', []);
 angular.module('homePage')
     .controller('homePageCtrl', homePageCtrl)
-    .factory('dataFactory', dataFactory);
+    .factory('dataFactory', dataFactory)
 
 
 function homePageCtrl(dataFactory) {
@@ -30,3 +30,7 @@ function dataFactory($http) {
     return dataFactory;
 }
 
+
+// function auth() {
+//     var token = 'AQDvu8lknBsemBpSFO5CtnzXYpqkzxdig0IcEXgmqC6HLksDjVDviWzX7mqXuxmQY5z-0oNQK2NOJ7ht_lLNCih43n1GcIx2AcYQzV4n1rI2OupmpqOnm_pdaozhQyH_3kwvxUDbb6-zGLNI0biBkSCW3z_ZnIctaCpZmVS2ELz3_nJC6o21m_Ddukx8DMS42XNmg4LoX6NjRgokziu5Gw0jyG8FEVZNxHS6VeqJ4JDE1tRFij-U';
+// }
