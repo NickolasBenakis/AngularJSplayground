@@ -49,13 +49,6 @@ function SimpleController($scope, SimpleFactory, test) {
 
 }
 
-function login($scope) {
-    $scope.getAccess = function () {
-        window.location.href = "http://localhost:8888/login";
-    }
-}
-
-
 function config($routeProvider) {
     $routeProvider.
         when('/homePage', {
@@ -80,3 +73,17 @@ function config($routeProvider) {
         }).
         otherwise({ redirectTo: '/loginPage' });
 }
+
+
+function login($scope) {
+    var vm = this;
+    $scope.getAccess = function () {
+        window.location.href = "http://localhost:8888/login";
+    }
+}
+
+// function getToken(flag) {
+//     if (flag) {
+//         localStorage.setItem('token', window.location.search);
+//     }
+// }
